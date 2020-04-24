@@ -21,4 +21,5 @@ node {
   		sh "${mvnHome}/bin/mvn -DskipTests clean package"
   	
   }
+  cleanWs()
 }
