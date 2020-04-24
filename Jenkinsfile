@@ -12,7 +12,7 @@ node {
   branchName = "${env.BRANCH_NAME}".replace("/","-")
   buildName = "${branchName}" + "-${env.BUILD_ID}"
   		checkout scm
-  		shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format: '%H'").trim()
+  		shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
   sh "echo ${shortCommit} > deploy/COMMIT_HASH"
   sh "echo ${buildName} > deploy/BUILD_ID"
 }
