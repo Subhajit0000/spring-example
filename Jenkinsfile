@@ -15,11 +15,16 @@ node {
   		shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
   sh "echo ${shortCommit}"
   sh "echo ${buildName}"
-  
+  def mvnHome = tool name: 'maven-3', type: 'maven'
   stage('Build') {
-  		def mvnHome = tool name: 'maven-3', type: 'maven'
+  		
   		sh "${mvnHome}/bin/mvn -DskipTests clean package"
   	
+  }
+  stage('Database Update') {
+        
+        sh "${mvnHome}/bin/mvn liquibase:update"     
+  
   }
   cleanWs()
 }
