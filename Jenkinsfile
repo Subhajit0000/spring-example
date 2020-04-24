@@ -17,6 +17,8 @@ node {
   sh "echo ${buildName}"
   
   stage('Build') {
+  		docker.image('maven:3-alpine').inside('-v /root/.m2:/root/.m2'){
   		sh 'mvn -DskipTests clean package'
+  	}
   }
 }
