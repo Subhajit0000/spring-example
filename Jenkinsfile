@@ -17,6 +17,6 @@ node {
   sh "echo ${buildName}"
   
   stage('Build') {
-  		sh 'mvn -B -DskipTests clean package'
+  		sh 'mvn -DskipTests clean package'
   }
 }
