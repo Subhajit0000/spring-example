@@ -15,4 +15,8 @@ node {
   		shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()
   sh "echo ${shortCommit}"
   sh "echo ${buildName}"
+  
+  stage('Build') {
+  		sh 'mvn -B -DskipTests clean package'
+  }
 }
