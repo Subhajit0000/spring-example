@@ -31,7 +31,7 @@ node {
   	classPattern: 'target/classes',
   	sourcePattern: 'src/main/java',
   	exclusionPattern: 'src/test*'] )
-  	//publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')]
+  	publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')]
   	archiveArtifacts artifacts: 'target/site/jacoco/jacoco.xml,target/site/jacoco/index.html', allowEmptyArchive: true
   	
   
