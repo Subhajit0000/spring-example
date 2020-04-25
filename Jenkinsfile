@@ -22,7 +22,7 @@ node {
   	
   }
   
-  stage('Static Analysis) {
+  stage('Static Analysis') {
   
   		sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml"
   
