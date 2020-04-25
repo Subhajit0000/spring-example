@@ -21,9 +21,9 @@ node {
   		sh "${mvnHome}/bin/mvn -DskipTests clean package"
   	
   }
-  stage('Database Update') {
+  stage('Generate Database ChangeLog') {
         
-        sh "${mvnHome}/bin/mvn liquibase:update"     
+        sh "${mvnHome}/bin/mvn liquibase:generateChangeLog"     
   
   }
   cleanWs()
