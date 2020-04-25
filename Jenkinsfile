@@ -23,7 +23,7 @@ node {
   }
   stage('Database Update') {
         
-        sh "${mvnHome}/bin/mvn liquibase:generateChangeLog"     
+        sh "${mvnHome}/bin/mvn liquibase:update"     
   
   }
   cleanWs()
