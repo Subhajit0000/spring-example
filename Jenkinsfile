@@ -22,12 +22,6 @@ node {
   	
   }
   
-  stage('Static Analysis') {
-  
-  		sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml"
-  
-  }
- 
   stage('Unit Test') {
   
   		sh "${mvnHome}/bin/mvn test"
@@ -42,6 +36,14 @@ node {
   	
   
   }
+  
+  stage('Static Analysis') {
+  
+  		sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml jacoco:report"
+  
+  }
+ 
+  
   
   stage('Database Update') {
         
