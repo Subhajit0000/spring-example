@@ -21,11 +21,7 @@ node {
   		sh "${mvnHome}/bin/mvn -DskipTests clean package"
   	
   }
-  //stage('Database Update') {
-        
-        //sh "${mvnHome}/bin/mvn liquibase:update"     
-  
-  //}
+ 
   stage('Unit Test') {
   
   		sh "${mvnHome}/bin/mvn test"
@@ -38,6 +34,12 @@ node {
   	//publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')]
   	archiveArtifacts artifacts: 'target/site/jacoco/jacoco.xml,target/site/jacoco/index.html', allowEmptyArchive: true
   	
+  
+  }
+  
+  stage('Database Update') {
+        
+        sh "${mvnHome}/bin/mvn liquibase:update"     
   
   }
   cleanWs()
