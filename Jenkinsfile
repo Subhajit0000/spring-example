@@ -26,5 +26,10 @@ node {
         sh "${mvnHome}/bin/mvn liquibase:update"     
   
   }
+  stage('Unit Test') {
+  
+  		sh "${mvnHome}/bin/mvn test"
+  
+  }
   cleanWs()
 }
