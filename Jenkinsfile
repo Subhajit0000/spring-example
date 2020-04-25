@@ -23,7 +23,7 @@ node {
   }
   stage('Database Update') {
         
-        sh "${mvnHome}/bin/mvn -DskipTests spring-boot:run"     
+        sh "${mvnHome}/bin/mvn liquibase:update"     
   
   }
   cleanWs()
