@@ -45,15 +45,15 @@ node {
  
   
   
-  //stage('Database Update') {
+  stage('Database Update') {
         
-        //sh "${mvnHome}/bin/mvn liquibase:update"     
+        sh "${mvnHome}/bin/mvn liquibase:update"     
   
-  //}
+  }
   
   stage('Docker Build') {
   
-  	docker.build("docker-springboot-postgres")
+  	docker.build("docker-springboot-postgres:${buildName}")
   
   }
   cleanWs()
