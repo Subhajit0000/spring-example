@@ -18,7 +18,7 @@ node {
   def mvnHome = tool name: 'maven-3', type: 'maven'
   stage('Build') {
   		
-  		sh "${mvnHome}/bin/mvn -DskipTests clean package"
+  		sh "${mvnHome}/bin/mvn -DskipTests clean install"
   	
   }
   
@@ -45,9 +45,15 @@ node {
  
   
   
-  stage('Database Update') {
+  //stage('Database Update') {
         
-        sh "${mvnHome}/bin/mvn liquibase:update"     
+        //sh "${mvnHome}/bin/mvn liquibase:update"     
+  
+  //}
+  
+  stage('Docker Build') {
+  
+  	docker.build("docker-springboot-postgres")
   
   }
   cleanWs()

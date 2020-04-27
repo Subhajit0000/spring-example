@@ -6,7 +6,7 @@
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-boot-postgres</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>spring-boot-postgres</name>
 	<description>Demo project for Spring Boot and PostgreSQL</description>
